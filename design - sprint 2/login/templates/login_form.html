@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab- Login</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratry management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratry management -Login Section</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{ERROR}}</h4>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4 table-responsive">
+
+				<form action="/login/login_auth/" method="POST">
+					<div class="form-group">
+					{% csrf_token %}
+						<label>ID:</label>
+						<input class="form-control" type="text" name="id" placeholder="ID">
+					</div>
+					<div class="form-group">
+						<label> Email:</label>
+						<input class="form-control" type="text" name="emailid" placeholder="EMAIL ID">
+					</div>
+					<div class="form-group">
+						<label>Password:</label>
+						<input class="form-control" type="password" name="paswd" placeholder="Password" class="sudo">
+					</div>
+					<div class="form-group">
+						<label>Role: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input  type="radio" name="role" value="user" class="sudo"> User
+						<input  type="radio" name="role" value="pathologist" class="sudo"> Pathologist
+						<input  type="radio" name="role" value="admin" class="sudo"> Admin
+					</div>
+					<div class="col-md-12 center-div">
+						<input type="submit" class="btn btn-success" value='Sign In'>
+					</div>
+				</form>
+			</div>
+		</div>
+	
+		<footer class="center-div" style="margin-top:10px;margin-bottom:10px;">
+			<a href="/login/red_home/" ><button class="btn btn-danger sign">Back to home</button></a>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab- patient View</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratry management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratry management - View assigned patient details</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{ERROR}}</h4>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4">
+           
+				<form action="/agent/display/" method="POST">
+					{% csrf_token %}
+					<div class="form-group">
+						<label>PATIENT ID:</label>
+						<select class="form-control" name='pat'>
+							<option disabled> -Select</option>
+
+							{% for i in records %}
+								<option value={{ i.0 }} name="ltid">{{ i.0 }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					
+					<div class="col-md-12 center-div">
+						<input class="btn btn-info" type="submit" name="submit" value="Show  patient details">
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<footer class="center-div" style="margin-top:20px;margin-bottom:10px;">
+			<a href="/agent/menu/" ><button class="btn btn-success">Back to home</button></a>
+			<a href="/agent/sign_out/" ><button class="btn btn-danger sign">{{text}}(SIGN OUT)</button></a>
+		</footer>
+	</div>
+</body>
+</html>

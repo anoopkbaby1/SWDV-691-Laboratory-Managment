@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab-Admin</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratry management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratry management -Admin area</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{ERROR}}</h4>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-5"></div>
+			<div class="col-md-6">
+				<div class="col-sm-4" style="margin-top:10px;">
+					<a href="/admin_act/reg/"><button class="btn btn-info" style="width:100%;height:100%;">Register Pathologists</button></a>
+				</div>
+				<div class="col-sm-4" style="margin-top:10px;">
+					<a href="/admin_act/agv/"><button class="btn btn-success" style="width:100%;height:100%;">View Pathologists</button></a>
+				</div>
+				<div class="col-sm-4" style="margin-top:10px;">
+					<a href="/admin_act/removePatho/"><button class="btn btn-info" style="width:100%;height:100%;">Remove Pathologists </button></a>
+				</div>
+				<div class="col-sm-4" style="margin-top:10px;">
+					<a href="/admin_act/update/"><button class="btn btn-success" style="width:100%;height:100%;">Update Pathologists Profile </button></a>
+				</div>
+				<div class="col-sm-4" style="margin-top:10px;">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">View Bills</button></a>
+				</div>
+			</div>
+		</div>
+
+		<footer class="center-div" style="margin-top:30px;">
+			<a href="/admin_act/sign_out/" ><button class="btn btn-danger sign">{{text}}(SIGN OUT)</button></a>
+		</footer>
+	</div>
+</body>
+</html>
