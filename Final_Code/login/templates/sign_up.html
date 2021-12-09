@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab- SignUp</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratory management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratory management -SignUp Section</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{ERROR}}</h4>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="col-xl-6 col-lg-6 col-md-8 col-sm-10 mx-auto form p-4 table-responsive">
+
+				<form action="/login/new_check/" method="POST">
+					{% csrf_token %}
+					<div class="form-group"  style="display:flex;">
+						<label>ID:</label>
+						<input class="form-control" type="text" name="id" placeholder="ID" class="sform" id='IID'>
+						
+						
+						<label>Gender: </label>&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="gender" class="sbutton" value="Male"> Male 
+						<input type="radio" name="gender" class="sbutton" value="Female"> Female
+					</div>
+					<div class="form-group" style="display:flex;">
+						<label>First Name:</label>
+						<input class="form-control" type="text" name="fname" placeholder="First Name" class="sform" id='fn'>
+						<label>Last Name:</label>
+						<input class="form-control" type="text" name="lname" placeholder="Last Name">
+					</div>
+					<div class="form-group" style="display:flex;">
+						<label>DOB:</label>
+						<input class="form-control" type="text" name="dob" placeholder="YYYY-MM-DD" class="sform" id='db'>
+						<label>Age:</label>
+						<input class="form-control" type="text" name="age" placeholder="Age">
+					</div>
+					
+					<div class="form-group" style="display:flex;">
+						<label>House No-</label>
+						<input class="form-control" type="text" name="hno" class="sform" placeholder="House Number" id="hn"> 
+						<label>Street-</label>
+						<input class="form-control" type="text" name="street" class="sform" placeholder="Street Name" id="st">
+					</div>
+					
+					<div class="form-group" style="display:flex;">
+						<label>Locality-</label>
+						<input class="form-control" type="text" name="local" class="sform" placeholder="Locality" id="lc"> 
+						<label>Landmark-</label>
+						<input type="text" name="lmark" placeholder="Landmark">
+					</div>
+					
+					<div class="form-group">
+						<label>Address Line : </label>
+						<input class="form-control" type="text" name="addline" placeholder="Address Line">
+					</div>
+					
+					<div class="form-group" style="display:flex;">
+						<label>City-</label>
+						<input class="form-control" type="text" name="city" class="sform" placeholder="City" id="ct">
+						<label>State-</label>
+						<input class="form-control" type="text" name="state" class="sform" placeholder="State" id="state">
+						<label>PINCODE-</label>
+						<input class="form-control" type="text" name="pin" placeholder="pincode" >
+					</div>
+					
+					<div class="form-group" style="display:flex;">
+						<label>Phone Number:</label>
+						<input class="form-control" type="text" name="phno" placeholder="Phone Number" class="sform" id="ph">
+						<label>Email ID:</label>
+						<input class="form-control" type="email" name="eid" placeholder="Email ID" class="sform">
+					</div>
+					
+					<div class="form-group" style="display:flex;">
+						<label>Password:</label>
+						<input class="form-control" type="password" name="passwd" placeholder="Password" class="sform"><br><br>
+						<label>Re-Password:</label>
+						<input class="form-control" type="password" name="repwd" placeholder="Re-Password" class="sform"><br>
+					</div>
+					
+					<div class="col-md-12 center-div">
+						<input class="btn btn-success" type="submit" name="enter" placeholder="SUBMIT" Value="Sign up">
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<footer class="center-div" style="margin-top:10px;margin-bottom:10px;">
+			<a href="/login/red_home/" ><button class="btn btn-danger sign">Back to home</button></a>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>See lab and tests</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" />
+</head>
+<body>
+<center><h1>Pathology Lab Management</h1></center>
+<center><div id="bar">
+<a href="/labs/"><button class="button"><h2>Labs</h2> </button></a>
+<a href="/centres/"><button class="button"><h2>Centres</h2></button></a>
+<a href="/testnames/"><button class="button"><h2>Tests</h2></button></a>
+<a href="/agentinfo/"><button class="button"><h2>Agents</h2> </button></a>
+<a href="/contact/"><button class="button"><h2>Contact</h2> </button></a>
+</div>
+<br><br><br>
+{{ERROR}}
+</center>
+<br><br>
+
+			<center><div id="pageContent" style="width:80%">
+
+                <table class="login" border="1">
+
+                    <tr style="color:black">
+                        <th> ID </th>
+                        <th> Lab ID </th>
+                        <th> Test ID </th>
+                        <th> Cost </th>
+                    </tr>
+
+                    {% for i in records %}
+
+                        <tr style="color:black ; height:40px">
+                            <td> {{ i.0 }} </td>
+                            <td> {{ i.1 }} </td>
+                            <td> {{ i.2 }} </td>
+                            <td> {{ i.3 }} </td>
+                        </tr>
+
+                    {% endfor %}
+
+                </table>
+        </div></center>
+        <br><br>
+<center><a href="/menuhom/" ><button class="button1">Go To Menu</button></a></center><br><br>
+
+
+</body>
+</html>

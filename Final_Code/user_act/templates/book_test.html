@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab- Patient</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratory management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratory management -Patient area</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{MSG}}</h4>
+			</div>
+		</div>
+			<div class="row" style="margin-top:20px;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<form action='/user/book_submit/' method="POST">
+						{% csrf_token %}
+						
+						<div class="form-group">
+							<label>Patient ID:</label>
+							<select name="pati" class="form-control">
+								<option disabled> -Select</option>
+								{% for i in pat %}
+									<option value={{ i.0 }} name="pat">{{ i.0 }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Lab ID:</label>
+							<select class="form-control" name='lt' >
+								<option disabled> -Select</option>
+
+								{% for i in lts %}
+									<option value={{ i.0 }} name="ltid">{{ i.0 }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Test ID:</label>
+							<select class="form-control" name='tt' >
+								<option disabled> -Select</option>
+
+								{% for i in tts %}
+									<option value={{ i.0 }} name="ttid">{{ i.0 }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Pathologist ID:</label>
+							<select class="form-control" name='ptt'>
+								<option disabled> -Select</option>
+								{% for i in ptts %}
+									<option value={{ i.0 }} name="city">{{ i.0 }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						
+						<div class="form-group">
+							<label>Test Date: </label>
+							<input class="form-control" type="date" min={{ min }} max={{ max }} name="ndate">
+						</div>
+						
+						<div class="col-md-12 center-div">
+							<input class="btn btn-info "type="submit" name="submit" value="BOOK Test">
+						</div>
+					</form>
+				</div>
+			</div>
+
+		<footer class="center-div" style="margin-top:20px;margin-bottom:10px;">
+			<a href="/user/menu/" ><button class="btn btn-success">Back to home</button></a>			
+			<a href="/user/sign_out/" ><button class="btn btn-danger sign">{{text}}(SIGN OUT)</button></a>
+		</footer>
+	</div>
+</body>
+</html>

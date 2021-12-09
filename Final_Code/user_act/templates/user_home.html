@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lab- Patient</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'user_home.css' %}" /></head>
+<body>
+	<div class="jumbotron" style="background-color:#96d4d4;">
+		<center>
+			<h1>Laboratory management System</h1>
+		</center>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="bar" style="display: flex;">
+				<div class="col-md-4 center-div">
+					<a href="/getBills/"><button class="btn btn-info" style="width:100%;height:100%;">Bills</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/pathologistInfo/"><button class="btn btn-info" style="width:100%;height:100%;">Pathologists</button></a>
+				</div>
+				<div class="col-md-4 center-div">
+					<a href="/getPatients/"><button class="btn btn-info" style="width:100%;height:100%;">Patients</button></a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px; background-color:#c1f6f6;">
+			<div class="col-md-12 center-div">
+				<h3>Laboratory management -Patient area</h3>
+			</div>
+		</div>
+		
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-12 center-div">
+				<h4>{{ERROR}}</h4>
+			</div>
+		</div>
+		<div class="row" style="margin-top:20px;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<a href="/user/book/"><button class="btn btn-primary" style="margin-top:10px;width:100%;">Book a Test</button> </a><br>
+
+				<a href="/user/prev/"><button class="btn btn-success" style="margin-top:10px;width:100%;">See Prev. Tests</button></a><br>
+
+				<a href="/user/track/"><button class="btn btn-primary" style="margin-top:10px;width:100%;">Track a Test </button><a><br>
+
+				<a href="/user/update/"><button class="btn btn-success" style="margin-top:10px;width:100%;">Update Profile </button></a><br>
+			</div>
+		</div>
+
+		<footer class="center-div" style="margin-top:20px;margin-bottom:10px;">
+			<a href="/user/sign_out/" ><button class="btn btn-danger sign">{{text}}(SIGN OUT)</button></a>
+		</footer>
+	</div>
+</body>
+</html>
